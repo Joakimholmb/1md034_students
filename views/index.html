@@ -1,9 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>Burger Menu</title>
+        <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+
+            <h1>Welcome to BurgerOnline</h1>
+
+            <section>
+            <h3>Select burger</h3>
+            <p>This is where you execute burger selection</p>
+
+            <table>
+                <thead align="center">
+                    <tr>
+                        <th>Spicy Burger</th>
+                        <th>Not-so-spicy Burger</th>
+                        <th>Vegan Burger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5HnZeaXCOXti-_x3z3g9UuQ2tGP8FxMdgsBTV7CWhx_2Bg7UG" align="center" width="160">
+                            <ul>
+                                <li>Contains lactose</li>
+                                <li>500 Calories</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <img src="https://lh3.googleusercontent.com/i-vHb3CryeDkJrTydwmJFJ1M1HrFtjAGIDC5xI7wI7bkOqV_iV0Zpr6jtm-9Lmv6n1pgkMBhJHSb2Ef1XMxLEQ=s400" align="center" width="105">
+                            <ul>
+                                <li>Contains gluten</li>
+                                <li>1800 Calories</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <img src="https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg" align="center" width="145">
+                            <ul>
+                                <li>Contains nothing</li>
+                                <li>320 Calories</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+           
+            </section>
+
+            <section>
+            <h3>Customer Information</h3>
+            <p>This is where you provide necessary information</p>
+            <h4>Delivery information</h4>
+            <p>
+                <label for="fullname">Full name</label><br>
+                <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+            </p>
+            <p>
+                <label for="email">E-mail</label><br>
+                <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
+            </p>
+            <p>
+                <label for="street">Street</label><br>
+                <input type="text" id="street" name="st" required="required" placeholder="Street name">
+            </p>
+            <p>
+                <label for="house">House</label><br>
+                <input type="text" id="house" name="hs" required="required" placeholder="House number">
+            </p>
+
+            <p>
+                    <label for="payment">Payment Options</label><br>
+                    <select id="payment" name="po">
+                        <option>Visa</option>
+                        <option>Mastercard</option>
+                        <option selected="selected">Faktura</option>
+                        <option>Visa Electron</option>
+                    </select>
+                </p>
+
+            <p>
+                <label for="gender">Gender</label><br>
+                    <input type="radio" name="gender" value="male">Male<br>
+                    <input type="radio" name="gender" value="female">Female<br>
+                    <input type="radio" name="gender" value="other" checked="checked">Do not wish to provide<br>
+            </p>
+            </section>  
+
+            <button type="submit"><img src="https://tinyurl.com/ybm9whgm" width="30"> Place order!</button>
+        </main>
+        <footer>
+            <p>2019 Someone Burgers Inc</p>
+        </footer>
     </body>
 </html>
