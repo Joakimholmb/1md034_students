@@ -8,49 +8,40 @@
     <body>
         <main>
             <section id="head">
-            <h1>Welcome to BurgerOnline</h1>
             <img src="https://i.dmarge.com/2016/05/bea.jpeg" id="headimage">
+            <h1>Welcome to BurgerOnline</h1>
             </section>
 
             <section id="burger" class="doublesections">
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
 
-            <table>
-                <thead align="center">
-                    <tr>
-                        <th>Spicy Burger</th>
-                        <th>Not-so-spicy Burger</th>
-                        <th>Vegan Burger</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5HnZeaXCOXti-_x3z3g9UuQ2tGP8FxMdgsBTV7CWhx_2Bg7UG" align="center" width="160">
-                            <ul>
-                                <li>Contains <span class="ingredient">lactose</span></li>
-                                <li>500 Calories</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <img src="https://images.ctfassets.net/uexfe9h31g3m/4m3RQ5N9966QoYiUg8Emg0/d5bfff87910d911ad79c428c51af94ef/vegetarisk-umami-burgare.jpg?fm=jpg&fit=thumb&w=1200&h=630" align="center" height="117" width="145">
-                            <ul>
-                                <li>Contains <span class="ingredient">gluten</span></li>
-                                <li>1800 Calories</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <img src="https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg" align="center" width="145">
-                            <ul>
-                                <li>Contains <span class="ingredient">nothing</span></li>
-                                <li>320 Calories</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-           
+            <div class="wrapper">                   
+                <div class="box a">
+                    <p>Spicy Burger</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5HnZeaXCOXti-_x3z3g9UuQ2tGP8FxMdgsBTV7CWhx_2Bg7UG" align="center" width="160">
+                        <ul>
+                            <li>Contains <span class="ingredient">lactose</span></li>
+                            <li>500 Calories</li>
+                        </ul>
+                </div>
+                <div class="box b">
+                    <p>Not-so-spicy Burger</p>
+                    <img src="https://images.ctfassets.net/uexfe9h31g3m/4m3RQ5N9966QoYiUg8Emg0/d5bfff87910d911ad79c428c51af94ef/vegetarisk-umami-burgare.jpg?fm=jpg&fit=thumb&w=1200&h=630" align="center" height="117" width="145">
+                        <ul>
+                            <li>Contains <span class="ingredient">gluten</span></li>
+                            <li>1800 Calories</li>
+                        </ul>
+                </div>
+                <div class="box c">
+                    <p>Vegan Burger</p>
+                    <img src="https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg" align="center" width="145">
+                        <ul>
+                            <li>Contains <span class="ingredient">nothing</span></li>
+                            <li>320 Calories</li>
+                        </ul>
+                </div>
+            </div>
             </section>
 
             <section id="userinfo" class="doublesections">

@@ -16,6 +16,7 @@ body {
 h1 {
     position: absolute;
     padding: 64px;
+    margin-top: -740px;
 }
 
 #headimage {
@@ -42,4 +43,38 @@ button:hover {
 
 #button {
     margin-top: 10px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 100px;
+    grid-template-columns: 300px 300px 300px;
+    background-color: black;
+    color: white;
+}
+
+.box {
+    background-color: black;
+     color: white;
+     padding-left: 50px;
+     font-size: 100%;
+}
+
+.a {
+    grid-column: 1;
+    grid-row: 1;
+}
+.b {
+    grid-column: 2;
+    grid-row: 1;
+}
+.c {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vw;
+    }
 }
