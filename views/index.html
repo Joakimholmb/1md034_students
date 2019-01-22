@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Burger Menu</title>
         <meta charset="utf-8"/>
     </head>
     <body>
         <main>
-
             <h1>Welcome to BurgerOnline</h1>
 
-            <section>
+            <section id="burger">
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
 
@@ -26,21 +26,21 @@
                         <td>
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5HnZeaXCOXti-_x3z3g9UuQ2tGP8FxMdgsBTV7CWhx_2Bg7UG" align="center" width="160">
                             <ul>
-                                <li>Contains lactose</li>
+                                <li>Contains <span class="ingredient">lactose</span></li>
                                 <li>500 Calories</li>
                             </ul>
                         </td>
                         <td>
-                            <img src="https://lh3.googleusercontent.com/i-vHb3CryeDkJrTydwmJFJ1M1HrFtjAGIDC5xI7wI7bkOqV_iV0Zpr6jtm-9Lmv6n1pgkMBhJHSb2Ef1XMxLEQ=s400" align="center" width="105">
+                            <img src="https://images.ctfassets.net/uexfe9h31g3m/4m3RQ5N9966QoYiUg8Emg0/d5bfff87910d911ad79c428c51af94ef/vegetarisk-umami-burgare.jpg?fm=jpg&fit=thumb&w=1200&h=630" align="center" height="117" width="145">
                             <ul>
-                                <li>Contains gluten</li>
+                                <li>Contains <span class="ingredient">gluten</span></li>
                                 <li>1800 Calories</li>
                             </ul>
                         </td>
                         <td>
                             <img src="https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg" align="center" width="145">
                             <ul>
-                                <li>Contains nothing</li>
+                                <li>Contains <span class="ingredient">nothing</span></li>
                                 <li>320 Calories</li>
                             </ul>
                         </td>
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
            
-            </section>
+            </section id="userinfo">
 
             <section>
             <h3>Customer Information</h3>
