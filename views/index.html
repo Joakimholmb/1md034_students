@@ -20,7 +20,8 @@
 
             <div class="wrapper">                   
                     <div id="boxA">
-                        <p>{{ name() }}</p>
+                        <input type="checkbox" v-bind:value="burger.name" v-model="checked">
+                        <label> {{ name() }}</label> 
                         <img v-bind:src="imageLink" align="center" width="160">
                             <ul>
                                 <li>
@@ -31,7 +32,8 @@
                             </ul>
                     </div>
                     <div id="boxB">
-                        <p>{{ name() }}</p>
+                        <input type="checkbox" v-bind:value="burger.name" v-model="checked">
+                        <label> {{ name() }}</label> 
                         <img v-bind:src="imageLink" align="center" height="117" width="145">
                             <ul>
                                 <li>
@@ -42,8 +44,9 @@
                             </ul>
                     </div>
                     <div id="boxC">
-                        <p>{{ name() }}</p>
-                        <img v-bind:src="imageLink" align="center" width="145">
+                        <input type="checkbox" v-bind:value="burger.name" v-model="checked">
+                        <label> {{ name() }}</label>
+                        <img v-bind:src="imageLink" align="center" width="175">
                             <ul>
                                 <li>
                                     <p>{{ kCal() }}</p>
@@ -53,6 +56,7 @@
                             </ul>
                     </div>
                 </div>
+
             
             </section>
 
@@ -94,8 +98,10 @@
                     <input type="radio" name="gender" value="other" checked="checked">Do not wish to provide<br>
             </p>
 
-            <button type="submit" id="button"><img src="https://tinyurl.com/ybm9whgm" width="30"> Place order!</button>
-            </section>  
+            <button v-on:click="update" type="submit" id="button"><img src="https://tinyurl.com/ybm9whgm" width="30">
+                    {{ pOrder }}
+            </button>
+        </section>  
         </main>
         <footer>
             <p>&copy; 2019 Someone Burgers Inc</p>

@@ -18,6 +18,7 @@ var burgers = [
         "calories": 320,
         "gluten": true,
         "lactose": true,
-        "image": "https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg"
+        //"image": "https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg"
+        "image": "https://search.chow.com/thumbnail/1200/0/www.chowstatic.com/assets/recipe_photos/11-10-14/10988_veggie_burger.jpg"
     }
 ]
