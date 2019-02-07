@@ -3,28 +3,20 @@
 /* exported vm */
 'use strict';
 var socket = io();
-/*
+
 var vm = new Vue({
   el: '#dots',
   data: {
-    dOrder: {},
-  },
-  methods: {
-    displayOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-        y: event.currentTarget.getBoundingClientRect().top};
-      this.dOrder = { x: event.clientX - 10 - offset.x,
-        y: event.clientY - 10 - offset.y}
-    }
-  }
-});
-*/
-
-var vm = new Vue({
-  el: '#send',
-  data: {
     orders: {},
-    dOrder: {},
+  },
+  created: function () {
+    socket.on('initialize', function (data) {
+      this.orders = data.orders;
+    }.bind(this));
+
+    socket.on('currentQueue', function (data) {
+      this.orders = data.orders;
+    }.bind(this));
   },
   methods: {
     getNext: function () {
@@ -37,16 +29,10 @@ var vm = new Vue({
       var offset = {x: event.currentTarget.getBoundingClientRect().left,
                     y: event.currentTarget.getBoundingClientRect().top};
       socket.emit("addOrder", { orderId: this.getNext(),
-                                details: { x: this.dOrder.x - 10 - offset.x,
-                                           y: this.dOrder.y - 10 - offset.y },
+                                details: { x: event.clientX - 10 - offset.x,
+                                           y: event.clientY - 10 - offset.y },
                                 orderItems: ["Beans", "Curry"]
                               });
     },
-    displayOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-        y: event.currentTarget.getBoundingClientRect().top};
-      this.dOrder = { x: event.clientX - 10 - offset.x,
-        y: event.clientY - 10 - offset.y}
-    }
   }
 });

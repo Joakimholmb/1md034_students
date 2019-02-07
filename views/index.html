@@ -13,6 +13,7 @@
         <script src="js/js_script.js" defer></script>       
         <script src="https://vuejs.org/js/vue.js" defer></script>  
         <script src="js/vue_script.js" defer></script>
+        
     </head>
     <body>
         <div id="vm">
@@ -81,40 +82,31 @@
                     <input type="radio" name="gender" value="Female"  v-model="gender">Female<br>
                     <input type="radio" name="gender" value="Other" checked="checked" v-model="gender">Do not wish to provide<br>
             </p>
-<!--
+
                 <div class="view-box">
-                    <div id="dots" v-on:click="displayOrder">
-                        <div v-bind:style="{ left: dOrder.x + 'px', top: dOrder.y + 'px'}">
+                    <div id="dots" v-on:click="addOrder">
+                            <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                    {{key}}
+                                </div>
+                        <!--
+                        <div v-bind:style="{ left: coordinates.x + 'px', top: coordinates.y + 'px'}">
                             T
-                        </div>
+                        </div>-->
                     </div>
                 </div>
--->
+
                 <button v-on:click="update" type="submit"><img src="https://tinyurl.com/ybm9whgm" width="30">
                     Place Order!
                 </button>
 
-                <p v-for="data in form">
-                    {{data}}
+                <p v-if="form">
+                <span v-if="form.checked.length != 0">{{form.checked}}<br></span>
+                <span v-if="form.fullname">{{form.fullname}}<br></span>
+                <span v-if="form.email">{{form.email}}<br></span>
+                <span v-if="form.payment">{{form.payment}}<br></span>
+                <span v-if="form.gender">{{form.gender}}<br></span>
+                <span v-if="form.coordinates">{{form.coordinates.x}} {{form.coordinates.y}}<br></span>
                 </p>
-<!--
-                <div id="orderconf" v-if='bool === true'>
-                    <h4>{{ printOrder.head}}</h4>
-                    <h5>{{ printOrder.head2 }}</h5>
-                    <div id="personalinfo">
-                        <p>Name: {{ name }}</p><br>
-                        <p>Email: {{ email }}</p><br>
-                        <p>Deliver to: {{ coordinates.x }}, {{ coordinates.y}}</p><br>
-                        <p>Payment method: {{ paymentM }}</p><br>
-                        <p>Gender: {{ gender }}</p><br>
-                    </div>
-                    <h5>{{ printOrder.head3 }}</h5>
-                    <ul id="orderinfo">
-                        <li v-for="food in orderedWithContents">
-                            {{ food }}
-                        </li>
-                    </ul>
-                </div>-->
             </div>
         </section>  
         </main>
