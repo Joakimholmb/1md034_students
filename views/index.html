@@ -1,89 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <title>Burger Menu</title>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/deli-very.css">
+        <title>Burger Menu</title>
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="/vue/vue.js" defer></script>
+        <!--<script src="js/deli-very.js" defer></script>-->
+        <script type="text/javascript" src="js/menu.js" defer></script>
+        <script src="js/js_script.js" defer></script>       
+        <script src="https://vuejs.org/js/vue.js" defer></script>  
+        <script src="js/vue_script.js" defer></script>
     </head>
     <body>
+        <div id="vm">
         <main>
             <section id="head">
-            <img v-attr="src: imageLink" id="headimage">
+            <!--<img v-attr="src: imageLink" id="headimage">-->
             <img src="https://i.dmarge.com/2016/05/bea.jpeg" id="headimage">
             <h1>Welcome to BurgerOnline</h1>
             </section>
 
             <section id="burger" class="doublesections">
-
             <h3>Select burger</h3>
             <p>This is where you execute burger selection</p>
 
-            <div class="wrapper">                   
-                    <div id="boxA">
-                        <input type="checkbox" v-bind:value="burger.name" v-model="checked">
-                        <label> {{ name() }}</label> 
-                        <img v-bind:src="imageLink" align="center" width="160">
+            <div id="wrapper">                 
+                    <div v-for="burger in menu">
+                            <div>
+                        <input type="checkbox" v-bind:value="burger.name" v-bind:name="burger.name" v-model="checked">
+                        {{ burger.name }} 
+                        <br>
+                        <img v-bind:src="burger.image" align="center" width="150">
                             <ul>
                                 <li>
-                                    <p>{{ kCal() }}</p>
-                                    <p>{{ haveGluten() }}</p>
-                                    <p>{{ haveLactose() }}</p>
+                                    <p>{{ burger.calories }} calories</p>
+                                    <p v-if="burger.gluten">gluten</p>
+                                    <p v-if="burger.lactose">lactose</p>
                                 </li>
                             </ul>
                     </div>
-                    <div id="boxB">
-                        <input type="checkbox" v-bind:value="burger.name" v-model="checked">
-                        <label> {{ name() }}</label> 
-                        <img v-bind:src="imageLink" align="center" height="117" width="145">
-                            <ul>
-                                <li>
-                                    <p>{{ kCal() }}</p>
-                                    <p>{{ haveGluten() }}</p>
-                                    <p>{{ haveLactose() }}</p>
-                                </li>
-                            </ul>
-                    </div>
-                    <div id="boxC">
-                        <input type="checkbox" v-bind:value="burger.name" v-model="checked">
-                        <label> {{ name() }}</label>
-                        <img v-bind:src="imageLink" align="center" width="175">
-                            <ul>
-                                <li>
-                                    <p>{{ kCal() }}</p>
-                                    <p>{{ haveGluten() }}</p>
-                                    <p>{{ haveLactose() }}</p>
-                                </li>
-                            </ul>
-                    </div>
-                </div>
+                </div>  
+            </div>
 
             
             </section>
 
+        <div id="send">
+
+            
             <section id="userinfo" class="doublesections">
             <h3>Customer Information</h3>
             <p>This is where you provide necessary information</p>
             <h4>Delivery information</h4>
+
             <p>
                 <label for="fullname">Full name</label><br>
-                <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" v-model="fullname">
             </p>
             <p>
                 <label for="email">E-mail</label><br>
-                <input type="text" id="email" name="em" required="required" placeholder="E-mail address">
-            </p>
-            <p>
-                <label for="street">Street</label><br>
-                <input type="text" id="street" name="st" required="required" placeholder="Street name">
-            </p>
-            <p>
-                <label for="house">House</label><br>
-                <input type="text" id="house" name="hs" required="required" placeholder="House number">
+                <input v-model="email" type="text" id="email" name="em" required="required" placeholder="E-mail address"  v-model="email">
             </p>
 
             <p>
-                    <label for="payment">Payment Options</label><br>
-                    <select id="payment" name="po">
+                    <label>Payment Options</label><br>
+                    <select v-model="payment" id="payment" name="po">
                         <option>Visa</option>
                         <option>Mastercard</option>
                         <option selected="selected">Faktura</option>
@@ -92,23 +76,51 @@
                 </p>
 
             <p>
-                <label for="gender">Gender</label><br>
-                    <input type="radio" name="gender" value="male">Male<br>
-                    <input type="radio" name="gender" value="female">Female<br>
-                    <input type="radio" name="gender" value="other" checked="checked">Do not wish to provide<br>
+                <label  for="gender">Gender</label><br>
+                    <input type="radio" name="gender" value="Male" v-model="gender">Male<br>
+                    <input type="radio" name="gender" value="Female"  v-model="gender">Female<br>
+                    <input type="radio" name="gender" value="Other" checked="checked" v-model="gender">Do not wish to provide<br>
             </p>
+<!--
+                <div class="view-box">
+                    <div id="dots" v-on:click="displayOrder">
+                        <div v-bind:style="{ left: dOrder.x + 'px', top: dOrder.y + 'px'}">
+                            T
+                        </div>
+                    </div>
+                </div>
+-->
+                <button v-on:click="update" type="submit"><img src="https://tinyurl.com/ybm9whgm" width="30">
+                    Place Order!
+                </button>
 
-            <button v-on:click="update" type="submit" id="button"><img src="https://tinyurl.com/ybm9whgm" width="30">
-                    {{ pOrder }}
-            </button>
+                <p v-for="data in form">
+                    {{data}}
+                </p>
+<!--
+                <div id="orderconf" v-if='bool === true'>
+                    <h4>{{ printOrder.head}}</h4>
+                    <h5>{{ printOrder.head2 }}</h5>
+                    <div id="personalinfo">
+                        <p>Name: {{ name }}</p><br>
+                        <p>Email: {{ email }}</p><br>
+                        <p>Deliver to: {{ coordinates.x }}, {{ coordinates.y}}</p><br>
+                        <p>Payment method: {{ paymentM }}</p><br>
+                        <p>Gender: {{ gender }}</p><br>
+                    </div>
+                    <h5>{{ printOrder.head3 }}</h5>
+                    <ul id="orderinfo">
+                        <li v-for="food in orderedWithContents">
+                            {{ food }}
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
         </section>  
         </main>
         <footer>
             <p>&copy; 2019 Someone Burgers Inc</p>
         </footer>
-        <script type="text/javascript" src="js/menu.js"></script>
-        <script src="js/js_script.js"></script>       
-        <script src="https://vuejs.org/js/vue.js"></script>  
-        <script src="js/vue_script.js"></script>
+    </div>
     </body>
 </html>

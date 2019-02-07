@@ -18,7 +18,20 @@ var burgers = [
         "calories": 320,
         "gluten": true,
         "lactose": true,
-        //"image": "https://urbantastebuds-wpengine.netdna-ssl.com/wp-content/uploads/2014/09/baked-eggplant-vegan-burger-recipe.jpg"
         "image": "https://search.chow.com/thumbnail/1200/0/www.chowstatic.com/assets/recipe_photos/11-10-14/10988_veggie_burger.jpg"
+    },
+    {
+        "name": "Chicken Burger",
+        "calories": 450,
+        "gluten": true,
+        "lactose": true,
+        "image": "https://www.seriouseats.com/recipes/images/2015/07/20150702-sous-vide-hamburger-anova-primary-1500x1125.jpg"
+    },
+    {
+        "name": "Ugly Burger",
+        "calories": 90,
+        "gluten": false,
+        "lactose": false,
+        "image": "https://www.nrn.com/sites/nrn.com/files/styles/article_featured_standard/public/sonic-mushroom-burger.gif?itok=epnLgURt"
     }
 ]

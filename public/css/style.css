@@ -7,6 +7,16 @@ body {
     font-weight: bold;
 }
 
+#orderinfo {
+    font-size: 14px;
+    margin-top: -20px;
+}
+
+#personalinfo p {
+    font-size: 14px;
+    margin-top: -20px;
+}
+
 #head {
     margin: 10px;
     height: 260px;
@@ -54,10 +64,10 @@ button:hover {
     margin-top: 10px;
 }
 
-.wrapper {
+#wrapper {
     display: grid;
     grid-gap: 100px;
-    grid-template-columns: 300px 300px 300px;
+    grid-template-columns: auto auto auto;
     background-color: black;
     color: white;
 }
@@ -81,9 +91,9 @@ button:hover {
     grid-column: 3;
     grid-row: 1;
 }
-
+/*
 @media screen and (max-width: 800px) {
     h1 {
         font-size: 6vw;
     }
-}
+}*/
