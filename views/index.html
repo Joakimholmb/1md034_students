@@ -84,14 +84,14 @@
             </p>
 
                 <div class="view-box">
-                    <div id="dots" v-on:click="addOrder">
+                    <div id="dots" v-on:click="displayOrder"><!--
                             <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
                                     {{key}}
-                                </div>
-                        <!--
+                                </div>-->
+                        
                         <div v-bind:style="{ left: coordinates.x + 'px', top: coordinates.y + 'px'}">
                             T
-                        </div>-->
+                        </div>
                     </div>
                 </div>
 
