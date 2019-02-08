@@ -13,10 +13,10 @@ var vueObject = new Vue({
         email: '',
         payment: '',
         gender: '',
-        coordinates: {},
         orders: {},
-        form: null
-    },/*
+        coordinates: {},
+        form: null,
+    },
     created: function () {
       socket.on('initialize', function (data) {
         this.orders = data.orders;
@@ -25,26 +25,22 @@ var vueObject = new Vue({
       socket.on('currentQueue', function (data) {
         this.orders = data.orders;
       }.bind(this));
-    },*/
+    },
     methods: {
-        update: function(){
+        getNext: function () {
+          var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
+            return Math.max(last, next);
+          }, 0);
+          return lastOrder + 1;
+        },
+          addOrder: function(event) {
             console.log("Button clicked!");
             this.form = {checked: this.checked, fullname: this.fullname, email: this.email, payment: this.payment, gender: this.gender, coordinates: this.coordinates};
-            this.addOrder();
-        },
-        getNext: function () {
-            var lastOrder = Object.keys(this.orders).reduce(function (last, next) {
-              return Math.max(last, next);
-            }, 0);
-            return lastOrder + 1;
-          },
-          addOrder: function() {
-            var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                          y: event.currentTarget.getBoundingClientRect().top};
             socket.emit("addOrder", { orderId: this.getNext(),
                                       details: { x: this.coordinates.x,
                                                  y: this.coordinates.y },
-                                      orderItems: this.checked
+                                      orderItems: [this.checked],
+                                      orderInfo: [this.fullname, this.email, this.payment, this.gender, this.coordinates]
                                     });
           },
           displayOrder: function (event) {

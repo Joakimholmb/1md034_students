@@ -12,9 +12,9 @@ body {
     margin-top: -20px;
 }
 
-#personalinfo p {
-    font-size: 14px;
-    margin-top: -20px;
+.personalinfo {
+    font-size: 17px;
+    margin-top: 20px;
 }
 
 #head {
